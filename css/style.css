@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "Akbaal";
+  src: url("/fonts/akbaal.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Skelett";
+  src: url("/fonts/Skelett.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Times New Normal";
+  src: url("/fonts/Times New Normal Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Times New Romance";
+  src: url("/fonts/Times New Romance.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Made Likes";
+  src: url("/fonts/MADE Likes Slab.otf") format("opentype");
+}
+@font-face {
+  font-family: "Made Waffle";
+  src: url("/fonts/MADE Waffle Slab.otf") format("opentype");
+}
 :root {
   scroll-behavior: smooth;
 }
@@ -30,28 +54,61 @@
 body {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body aside {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  background-image: linear-gradient(to bottom right, midnightblue, indigo);
+}
+body aside div {
+  font: 2rem "Times New Normal", sans-serif;
+  color: white;
+  margin: 10px 0;
+}
+body aside div:last-child {
+  margin-top: auto;
+}
+body main {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  width: calc(100% - 200px);
   background-image: linear-gradient(to bottom right, indigo, coral);
+}
+body main div.content {
+  padding: 20px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-body h1 {
-  font-size: 5rem;
+body main div.content h1 {
+  font: 5rem "Akbaal", sans-serif;
 }
-body a {
-  font-size: 3.5rem;
+body main div.content a {
+  font: 3.5rem "Skelett", sans-serif;
   color: black;
   text-decoration: none;
   overflow: hidden;
   position: relative;
   padding: 0 0.5em;
   transition: all 0.5s;
+  z-index: 1;
 }
-body a:hover {
+body main div.content a:hover {
   color: white;
 }
-body a::before {
+body main div.content a::before {
   content: "";
   z-index: -1;
   border-radius: 999px;
@@ -84,9 +141,37 @@ body a::before {
     background-position: 200% 0;
   }
 }
-body a:hover::before {
+body main div.content a:hover::before {
   width: 100%;
   opacity: 1;
+}
+body main div.content section {
+  display: flex;
+  gap: 10px;
+  border-radius: 30px;
+  width: 60%;
+  background-color: dimgray;
+  padding: 20px;
+  margin-top: 20px;
+}
+body main div.content section article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  flex: 1;
+  margin-top: 0;
+}
+body main div.content section article h2 {
+  font: 1.75rem "Times New Normal", sans-serif;
+  color: lightgray;
+}
+body main div.content section article p {
+  font: 1.1rem "Made Likes", sans-serif;
+  background-color: gray;
+  color: navy;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

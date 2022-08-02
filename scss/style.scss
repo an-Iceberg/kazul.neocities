@@ -1,4 +1,33 @@
 // TODO: don't forget to run the autoprefixer command in VSCode
+@font-face {
+  font-family: "Akbaal";
+  src: url("/fonts/akbaal.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Skelett";
+  src: url("/fonts/Skelett.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Times New Normal";
+  src: url("/fonts/Times New Normal Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Times New Romance";
+  src: url("/fonts/Times New Romance.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Made Likes";
+  src: url("/fonts/MADE Likes Slab.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Made Waffle";
+  src: url("/fonts/MADE Waffle Slab.otf") format("opentype");
+}
 
 :root {
   scroll-behavior: smooth;
@@ -35,68 +64,141 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-image: linear-gradient(to bottom right, indigo, coral);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  $aside-width: 200px;
 
-  h1 {
-    font-size: 5rem;
+  aside {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: $aside-width;
+    background-image: linear-gradient(to bottom right, midnightblue, indigo);
+
+    div {
+      font: 2rem "Times New Normal", sans-serif;
+      color: white;
+      margin: 10px 0;
+
+      &:last-child {
+        margin-top: auto;
+      }
+    }
   }
 
-  a {
-    font-size: 3.5rem;
-    color: black;
-    text-decoration: none;
-    overflow: hidden;
-    position: relative;
-    padding: 0 .5em;
-    transition: all .5s;
+  main {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    width: calc(100% - $aside-width);
+    background-image: linear-gradient(to bottom right, indigo, coral);
 
-    &:hover {
-      color: white;
-    }
+    div.content{
+      padding: 20px;
+      height: -webkit-min-content;
+      height: -moz-min-content;
+      height: min-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-    &::before {
-      content: '';
-      z-index: -1;
-      border-radius: 999px;
-      position: absolute;
-      opacity: 0;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      transition: all .3s;
-      background-image: linear-gradient(-90deg, red, orange, yellow, green, blue, purple, red);
-      background-size: 200% 100%;
-      background-repeat: repeat-x;
-      -webkit-animation: link-bg 5s linear 0s infinite;
-      animation: link-bg 5s linear 0s infinite;
+      h1 {
+        font: 5rem "Akbaal", sans-serif;
+        // font-size: 5rem;
+      }
 
-      @-webkit-keyframes link-bg {
-        from {
-          background-position: 0 0;
+      a {
+        font: 3.5rem "Skelett", sans-serif;
+        // font-size: 3.5rem;
+        color: black;
+        text-decoration: none;
+        overflow: hidden;
+        position: relative;
+        padding: 0 .5em;
+        transition: all .5s;
+        z-index: 1;
+
+        &:hover {
+          color: white;
         }
-        to {
-          background-position: 200% 0;
+
+        &::before {
+          content: '';
+          z-index: -1;
+          border-radius: 999px;
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 100%;
+          transition: all .3s;
+          background-image: linear-gradient(-90deg, red, orange, yellow, green, blue, purple, red);
+          background-size: 200% 100%;
+          background-repeat: repeat-x;
+          -webkit-animation: link-bg 5s linear 0s infinite;
+          animation: link-bg 5s linear 0s infinite;
+
+          @-webkit-keyframes link-bg {
+            from {
+              background-position: 0 0;
+            }
+            to {
+              background-position: 200% 0;
+            }
+          }
+
+          @keyframes link-bg {
+            from {
+              background-position: 0 0;
+            }
+            to {
+              background-position: 200% 0;
+            }
+          }
+        }
+
+        &:hover::before {
+          width: 100%;
+          opacity: 1;
         }
       }
 
-      @keyframes link-bg {
-        from {
-          background-position: 0 0;
-        }
-        to {
-          background-position: 200% 0;
+      section {
+        display: flex;
+        gap: 10px;
+        border-radius: 30px;
+        width: 60%;
+        background-color: dimgray;
+        padding: 20px;
+        margin-top: 20px;
+
+        article {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: justify;
+          flex: 1;
+          margin-top: 0;
+
+          h2 {
+            font: 1.75rem "Times New Normal", sans-serif;
+            color: lightgray;
+          }
+
+          p {
+            font: 1.1rem "Made Likes", sans-serif;
+            background-color: gray;
+            color: navy;
+            padding: 10px;
+            border-radius: 20px;
+          }
         }
       }
-    }
-
-    &:hover::before {
-      width: 100%;
-      opacity: 1;
     }
   }
 }
