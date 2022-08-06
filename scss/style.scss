@@ -25,8 +25,58 @@
 }
 
 @font-face {
-  font-family: "Made Waffle";
-  src: url("/fonts/MADE Waffle Slab.otf") format("opentype");
+  font-family: "Alba";
+  src: url("/fonts/ALBA____.TTF") format("truetype");
+}
+
+@font-face {
+  font-family: "Bauserif";
+  src: url("/fonts/bauserif.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Barkentina";
+  src: url("/fonts/Barkentina.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Gist";
+  src: url("/fonts/GistLight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Black Chancery";
+  src: url("/fonts/Black\ Chancery.TTF") format("truetype");
+}
+
+@font-face {
+  font-family: "Bonte Divina";
+  src: url("/fonts/BonteDivine.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Cano";
+  src: url("/fonts/Cano.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("/fonts/Comfortaa-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Dark and Black";
+  src: url("/fonts/Dark & Black D.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Diandra";
+  src: url("/fonts/Diandra-demo.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Type Machine";
+  src: url("/fonts/Type Machine.ttf") format("truetype");
 }
 
 :root {
@@ -61,6 +111,68 @@
   }
 }
 
+// FIXME: don't use "important"
+// ! don't use "important"
+.gist {
+  font: 1.1rem "Gist", serif !important;
+}
+
+.alba {
+  font: 1.1rem "Alba", sans-serif !important;
+}
+
+.bauserif {
+  font: 1.1rem "Bauserif", sans-serif !important;
+}
+
+.barkentina {
+  font: 1.1rem "Barkentina", sans-serif !important;
+}
+
+.made-likes {
+  font: 1.1rem "Made Likes", sans-serif !important;
+}
+
+.times-new-romance {
+  font: 1.1rem "Times New Romance", sans-serif !important;
+}
+
+.times-new-normal {
+  font: 1.1rem "Times New Normal", sans-serif !important;
+}
+
+.black-chancery {
+  font: 1.1rem "Black Chancery", sans-serif !important;
+}
+
+.bonte-divina {
+  font: 1.1rem "Bonte Divina", sans-serif !important;
+}
+
+.cano {
+  font: 1.1rem "Cano", sans-serif !important;
+}
+
+.comfortaa {
+  font: 1.1rem "Comfortaa", sans-serif !important;
+}
+
+.dark-and-black {
+  font: 1.1rem "Dark and Black", sans-serif !important;
+}
+
+.diandra {
+  font: 1.1rem "Diandra", sans-serif !important;
+}
+
+.type-machine {
+  font: 1.1rem "Type Machine", sans-serif !important;
+}
+
+template {
+  display: none;
+}
+
 body {
   height: 100vh;
   width: 100vw;
@@ -68,20 +180,28 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  $aside-width: 200px;
+  $aside-width: 140px;
 
   aside {
     height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    padding: 10px;
     align-items: center;
     width: $aside-width;
     background-image: linear-gradient(to bottom right, midnightblue, indigo);
 
     div {
-      font: 2rem "Times New Normal", sans-serif;
+      width: 100%;
+      font: 2rem "Bauserif", sans-serif;
       color: white;
-      margin: 10px 0;
+      border: 1px solid white;
+      border-radius: 20px;
+      padding-top: 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       &:last-child {
         margin-top: auto;
@@ -95,6 +215,7 @@ body {
     height: 100%;
     width: calc(100% - $aside-width);
     background-image: linear-gradient(to bottom right, indigo, coral);
+    background-color: black; // Apparently this can make the scrollbar "transparent"
 
     div.content{
       padding: 20px;
@@ -108,12 +229,10 @@ body {
 
       h1 {
         font: 5rem "Akbaal", sans-serif;
-        // font-size: 5rem;
       }
 
       a {
-        font: 3.5rem "Skelett", sans-serif;
-        // font-size: 3.5rem;
+        font: 4.3rem "Skelett", sans-serif;
         color: black;
         text-decoration: none;
         overflow: hidden;
@@ -170,12 +289,22 @@ body {
 
       section {
         display: flex;
-        gap: 10px;
+        gap: 20px;
         border-radius: 30px;
         width: 60%;
         background-color: dimgray;
         padding: 20px;
         margin-top: 20px;
+
+        &.font-selection {
+          flex: none;
+
+          div.buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+        }
 
         article {
           display: flex;
@@ -191,7 +320,8 @@ body {
           }
 
           p {
-            font: 1.1rem "Made Likes", sans-serif;
+            // TODO: remove the default font
+            font: 1.1rem "Averia", sans-serif;
             background-color: gray;
             color: navy;
             padding: 10px;
