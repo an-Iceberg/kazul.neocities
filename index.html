@@ -10,19 +10,39 @@
   <title>Kazul</title>
 </head>
 <body>
-  <aside>
-    <div>First</div>
-    <div>Second</div>
-    <div>Third</div>
-    <div>Fourth</div>
-    <div>Fith</div>
-    <div>End</div>
-  </aside>
-
   <main>
     <div class="content">
       <h1>A Big Heading</h1>
-      <a href="#">A link to nowhere</a>
+      <a href="#" class="link-rainbow">A link with a rainbow</a>
+
+      <a href="#" class="link-arrows">
+        <span class="text">A link with arrows</span>
+        <div class="arrows">
+          <!-- TODO: convert these px units to ems -->
+          <div style="--x: -50px; --y: -20px; --duration: 1.75s; --delay: 0s; --color: #ff0000;">➢</div>
+          <div style="--x: -30px; --y: 10px; --duration: 2s; --delay: .25s; --color: #00ff00;">➤</div>
+          <div style="--x: -40px; --y: 20px; --duration: 2.5s; --delay: .5s; --color: #00ffff;">⮚</div>
+          <div style="--x: -60px; --y: 25px; --duration: 1.5s; --delay: .75s; --color: #ffff00;">⮞</div>
+          <div style="--x: -20px; --y: 0px; --duration: 2.25s; --delay: 1s; --color: #ff8000;">🢖</div>
+          <div style="--x: -40px; --y: -10px; --duration: 1.75s; --delay: 1.25s; --color: #0000ff;">🢂</div>
+          <div style="--x: -70px; --y: -5px; --duration: 2s; --delay: 1.5s; --color: #ff00ff;">➾</div>
+          <div style="--x: -60px; --y: 15px; --duration: 3s; --delay: 1.75s; --color: #ff0080;">⮊</div>
+          <div style="--x: 0px; --y: -20px; --duration: 2.75s; --delay: 2s; --color: #0080ff;">➸</div>
+          <div style="--x: -30px; --y: 5px; --duration: 1.5s; --delay: 2.25s; --color: #00ff80;">⟹</div>
+          <div style="--x: -35px; --y: -15px; --duration: 1.75s; --delay: 2.5s; --color: #80ff00;">🠶</div>
+          <div style="--x: -25px; --y: 10px; --duration: 2.25s; --delay: 2.75s; --color: #8000ff;"><i>⇶</i></div>
+          <div style="--x: -55px; --y: 20px; --duration: 1.75s; --delay: 3s; --color: #ff0000;">➳</div>
+          <!-- <div style="--x: -30px; --y: 10px;">➛</div>
+          <div style="--x: -30px; --y: 10px;">➯</div>
+          <div style="--x: -30px; --y: 10px;">🢚</div>
+          <div style="--x: -30px; --y: 10px;">➺</div>
+          <div style="--x: -30px; --y: 10px;">➫</div>
+          <div style="--x: -30px; --y: 10px;">⇛</div>
+          <div style="--x: -30px; --y: 10px;">⭆</div>
+          <div style="--x: -30px; --y: 10px;">↠</div>
+          <div style="--x: -30px; --y: 10px;">🠞</div> -->
+        </div>
+      </a>
 
       <section>
         <article>
@@ -79,7 +99,7 @@
           {class: 'type-machine', text: 'Type Machine'},
           {class: 'made-likes', text: 'Made Likes'},
           {class: 'times-new-romance', text: 'Times New Romance'},
-          {class: 'times-new-normal', text: 'Times New Romance'}
+          {class: 'times-new-normal', text: 'Times New Normal'}
         ]
       }">
         <div class="buttons">

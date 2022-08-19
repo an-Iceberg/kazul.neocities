@@ -152,42 +152,32 @@ template {
 }
 
 body {
+  position: relative;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 50px 20px 20px 20px;
+  background-image: repeating-linear-gradient(-45deg, black 0px 10px, orange 10px 20px);
 }
-body aside {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-  align-items: center;
-  width: 140px;
-  background-image: linear-gradient(to bottom right, midnightblue, indigo);
-}
-body aside div {
+body::after {
+  content: "Website under construction";
+  font: 2rem "Alba", sans-serif;
+  text-shadow: 2px 2px 1px #000000, 2px -2px 1px #000000, -2px -2px 1px #000000, -2px 2px 1px #000000;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
-  font: 2rem "Bauserif", sans-serif;
-  color: white;
-  border: 1px solid white;
-  border-radius: 20px;
-  padding-top: 1px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-body aside div:last-child {
-  margin-top: auto;
 }
 body main {
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
-  width: calc(100% - 140px);
+  width: 100%;
   background-image: linear-gradient(to bottom right, indigo, coral);
   background-color: black;
 }
@@ -204,7 +194,7 @@ body main div.content {
 body main div.content h1 {
   font: 5rem "Akbaal", sans-serif;
 }
-body main div.content a {
+body main div.content .link-rainbow {
   font: 4.3rem "Skelett", sans-serif;
   color: black;
   text-decoration: none;
@@ -214,10 +204,10 @@ body main div.content a {
   transition: all 0.5s;
   z-index: 1;
 }
-body main div.content a:hover {
+body main div.content .link-rainbow:hover {
   color: white;
 }
-body main div.content a::before {
+body main div.content .link-rainbow::before {
   content: "";
   z-index: -1;
   border-radius: 999px;
@@ -250,9 +240,66 @@ body main div.content a::before {
     background-position: 200% 0;
   }
 }
-body main div.content a:hover::before {
+body main div.content .link-rainbow:hover::before {
   width: 100%;
   opacity: 1;
+}
+body main div.content .link-arrows {
+  font-size: 4rem;
+  position: relative;
+  text-decoration: none;
+  margin-top: 20px;
+  color: #ababab;
+  padding: 0 1em;
+  border-radius: 999px;
+  z-index: 1;
+  transition: all 0.5s;
+}
+body main div.content .link-arrows .text {
+  font: 1em "Cano", sans-serif;
+  z-index: 1;
+}
+body main div.content .link-arrows .arrows {
+  opacity: 0;
+  transition: all 0.5s;
+}
+body main div.content .link-arrows .arrows div {
+  opacity: 0;
+  color: var(--color);
+  font-size: 0.75em;
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  z-index: -1;
+  animation: arrow var(--duration) linear var(--delay) infinite forwards;
+}
+body main div.content .link-arrows:hover {
+  color: #303030;
+  background-color: #000;
+  transition: all 0.5s;
+}
+body main div.content .link-arrows:hover .arrows {
+  opacity: 1;
+  transition: all 0.5s;
+}
+@keyframes arrow {
+  0% {
+    opacity: 0;
+    left: var(--x);
+  }
+  5% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    left: 100%;
+  }
 }
 body main div.content section {
   display: flex;
